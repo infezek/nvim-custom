@@ -10,6 +10,30 @@ local plugins = {
         },
     },
     {
+        "rcarriga/nvim-notify"
+    },
+    {
+        "fatih/vim-go"
+    },
+    {
+        "github/copilot.vim",
+        cmd = "Copilot",
+    },
+    {
+        "ray-x/go.nvim",
+        dependencies = { -- optional packages
+            "ray-x/guihua.lua",
+            "neovim/nvim-lspconfig",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("go").setup()
+        end,
+        event = { "CmdlineEnter" },
+        ft = { "go", 'gomod' },
+        build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         opts = overrides.treesitter,
         dependencies = {
@@ -58,9 +82,6 @@ local plugins = {
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
         end,
-    },
-    {
-        "fatih/vim-go"
     },
     {
         "max397574/better-escape.nvim",
