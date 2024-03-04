@@ -22,7 +22,7 @@ M.abc = {
         ["<C-n>"] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "LSP diagnostic previous" },
         ["<C-p>"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "LSP diagnostic next" },
         ["<C-w>"] = { "<ESC>:bd<CR>:bn<CR>", "Fechar buffer atual e mudar para o próximo" },
-        ["<C-s>"] = { "<ESC>:w<CR>", "File saved", opts = { nowait = true } },
+        ["<C-s>"] = { "<ESC><cmd>lua vim.lsp.buf.format()<CR><cmd>:w<CR>", "File saved", opts = { nowait = true } },
         ["gc"] = { ":wincmd w<CR>:echo 'Focus moved to code'<CR>", "Move focus to next window", opts = { nowait = true } },
     },
 
